@@ -3,6 +3,7 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -14,6 +15,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import static java.awt.Color.BLACK;
+import static java.awt.Color.WHITE;
 
 public class ProfundidadeOptica {
 
@@ -61,6 +65,11 @@ public class ProfundidadeOptica {
                 true,
                 false
         );
+
+        XYPlot plot = (XYPlot) chart.getPlot();
+        plot.setBackgroundPaint(WHITE);
+        plot.setDomainGridlinePaint(BLACK);
+        plot.setRangeGridlinePaint(BLACK);
 
         JFrame frame = new JFrame("Gráfico do exercício 1");
         frame.add(new ChartPanel(chart));

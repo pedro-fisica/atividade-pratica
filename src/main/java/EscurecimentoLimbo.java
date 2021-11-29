@@ -1,13 +1,19 @@
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.axis.AxisSpace;
+import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.function.Function;
 
+import static java.awt.Color.*;
+import static java.awt.Color.WHITE;
 import static java.lang.Math.cos;
 import static java.lang.Math.log10;
 import static java.lang.Math.toRadians;
@@ -43,6 +49,13 @@ public class EscurecimentoLimbo {
                 true,
                 false
         );
+
+        XYPlot plot = (XYPlot) chart.getPlot();
+        plot.setBackgroundPaint(WHITE);
+        plot.setDomainGridlinePaint(BLACK);
+        plot.setRangeGridlinePaint(BLACK);
+
+        plot.getRangeAxis().setRange(0.3, 1.1);
 
         JFrame frame = new JFrame("Gráfico do exercício 2");
         frame.add(new ChartPanel(chart));
